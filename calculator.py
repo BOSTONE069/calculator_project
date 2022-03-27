@@ -1,5 +1,44 @@
 from tkinter import *
 
+#This part is about desfining math operations
+def add(a,b):
+    return a + b
+
+def sub(a,b):
+    return a - b
+
+def mul(a,b):
+    return a * b
+
+def div(a,b):
+    return a / b
+
+def mod(a,b):
+    return a % b
+
+def lcm(a,b):
+    L = a if a>b else b
+    while L <= a*b:
+        if L%a == 0 and L%b == 0:
+            return L
+        L+=1
+
+def hcf(a,b):
+    H = a if a<b else b
+    while H >= 1:
+        if a%H == 0 and b%H ==0:
+            return H
+        H-=1
+
+operations = {'ADD':add, 'ADDITION':add, 'SUM':add, 'PLUS':add,
+               'SUB':sub, 'DIFFERENCE':sub, 'MINUS':sub, 'SUBTRACT':sub,
+               'LCM':lcm, 'HCF':hcf, 'PRODUCT':mul, 'MULTIPLICATION':mul,
+               'MULTIPLY':mul, 'DIVISION':div, 'DIV':div, 'MOD':mod,
+               'REMAINDER':mod, 'MODULUS':mod}
+
+
+
+
 win = Tk()
 win.geometry('500x300')
 win.title('Smart Calculator')
