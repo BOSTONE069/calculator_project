@@ -30,6 +30,21 @@ def hcf(a,b):
             return H
         H-=1
 
+def extract_from_text(text):
+    l = []
+    for t in text.split(''):
+        try:
+            l.append(float(t))
+        except ValueError:
+            pass
+    return l
+
+
+def calculate():
+    text = textin.get()
+    for word in text.split(' '):
+        if word.upper() in operations.keys():
+
 operations = {'ADD':add, 'ADDITION':add, 'SUM':add, 'PLUS':add,
                'SUB':sub, 'DIFFERENCE':sub, 'MINUS':sub, 'SUBTRACT':sub,
                'LCM':lcm, 'HCF':hcf, 'PRODUCT':mul, 'MULTIPLICATION':mul,
