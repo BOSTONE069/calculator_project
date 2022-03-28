@@ -44,6 +44,17 @@ def calculate():
     text = textin.get()
     for word in text.split(' '):
         if word.upper() in operations.keys():
+            try:
+                l = extract_from_text(text)
+                r = operations[word.upper()](l[0] , l[1])
+                list.delete(0,END)
+                list.insert(END,r)
+            except:
+                list.delete(0,END)
+                list.insert(END, 'something went wrong please enter again')
+            finally:
+                break
+        elif 
 
 operations = {'ADD':add, 'ADDITION':add, 'SUM':add, 'PLUS':add,
                'SUB':sub, 'DIFFERENCE':sub, 'MINUS':sub, 'SUBTRACT':sub,
