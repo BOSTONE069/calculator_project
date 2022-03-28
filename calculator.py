@@ -32,7 +32,7 @@ def hcf(a,b):
 
 def extract_from_text(text):
     l = []
-    for t in text.split(''):
+    for t in text.split(' '):
         try:
             l.append(float(t))
         except ValueError:
@@ -54,13 +54,16 @@ def calculate():
                 list.insert(END, 'something went wrong please enter again')
             finally:
                 break
-        elif 
+        elif word.upper() not in operations.keys():
+            list.delete(0,END)
+            list.insert(END, 'something went wrong please enter again')
 
-operations = {'ADD':add, 'ADDITION':add, 'SUM':add, 'PLUS':add,
-               'SUB':sub, 'DIFFERENCE':sub, 'MINUS':sub, 'SUBTRACT':sub,
-               'LCM':lcm, 'HCF':hcf, 'PRODUCT':mul, 'MULTIPLICATION':mul,
-               'MULTIPLY':mul, 'DIVISION':div, 'DIV':div, 'MOD':mod,
-               'REMAINDER':mod, 'MODULUS':mod}
+
+operations = {'ADD':add , 'ADDITION':add , 'SUM':add , 'PLUS':add ,
+               'SUB':sub , 'DIFFERENCE':sub , 'MINUS':sub , 'SUBTRACT':sub ,
+               'LCM':lcm , 'HCF':hcf , 'PRODUCT':mul , 'MULTIPLICATION':mul ,
+               'MULTIPLY':mul , 'DIVISION':div , 'DIVIDE':div , 'DIV':div , 'MOD':mod ,
+               'REMAINDER':mod , 'MODULUS':mod}
 
 
 
@@ -81,7 +84,7 @@ textin = StringVar()
 entry1 = Entry(win, width=30, textvariable=textin)
 entry1.place(x=145,y=160)
 
-b1 = Button(win, text='Calculate')
+b1 = Button(win, text='Calculate' , command=calculate)
 b1.place(x=200,y=200)
 
 list = Listbox(win,width=20,height=3)
